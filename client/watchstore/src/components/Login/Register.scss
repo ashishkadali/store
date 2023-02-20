@@ -1,0 +1,14 @@
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  // border: 2px solid black;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  .registerSecondContainer {
+    display: flex;
+    flex-direction: column;
+    border: 0px solid black;
+    gap: 10px;
+  }
+}
