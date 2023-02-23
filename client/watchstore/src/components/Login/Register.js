@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../Login/Register.scss";
 import axios from "axios";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Register extends Component {
   constructor(props) {
@@ -42,8 +44,69 @@ export default class Register extends Component {
   render() {
     return (
       <>
+        <Container>
+          <Row>
+            <Col className=" hideing Sigin__container__image"></Col>
+            <Col className="Sigin__container__form">
+              <h1>Create Account</h1>
+              <Form style={{ width: "100%" }}>
+                <Form.Group>
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    onChange={(e) => this.handelChange(e)}
+                    placeholder="Enter Name"
+                    name="username"
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="Email"
+                    onChange={(e) => this.handelChange(e)}
+                    placeholder="Enter Email"
+                    name="email"
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="Password"
+                    onChange={(e) => this.handelChange(e)}
+                    placeholder="Enter Password"
+                    name="password"
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Confirm Password</Form.Label>
+                  <Form.Control
+                    type="Password"
+                    onChange={(e) => this.handelChange(e)}
+                    placeholder="Enter Confirm Password"
+                    name="confirmPassword"
+                    required
+                  />
+                </Form.Group>
+
+                <Button type="submit" style={{ margin: "10px" }}>
+                  sign-in
+                </Button>
+
+                <p>
+                  If you have account <Link to="/login">Login</Link>
+                </p>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
         {/* <center> */}
-        <p>Welcom to watch store </p>
+        {/* <p>Welcom to watch store </p>
         <p>Please register here</p>
         <div className="registerContainer">
           <form
@@ -82,7 +145,7 @@ export default class Register extends Component {
             ></input>
             <input type="submit" value="submit"></input>
           </form>
-        </div>
+        </div> */}
         {/* </center> */}
       </>
     );

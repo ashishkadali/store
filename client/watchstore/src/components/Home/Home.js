@@ -12,28 +12,40 @@ function Home() {
   const [overlaystatus, setOverlaystatus] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5001/home", {
-        headers: {
-          "x-token": token.token,
-        },
-      })
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err.data));
-  });
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5001/home", {
+  //       headers: {
+  //         "x-token": token.token,
+  //       },
+  //     })
+  //     .then((res) => setData(res.data))
+  //     .catch((err) => console.log(err.data));
+  // });
 
-  if (!token) {
-    return navigate("/Login");
-  }
+  // if (!token) {
+  //   return navigate("/Login");
+  // }
 
-  const logout = (e) => {
-    setToken(null);
-    return navigate("/Login");
-  };
+  // const logout = (e) => {
+  //   setToken(null);
+  //   return navigate("/Login");
+  // };
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="image__container">
+        <img
+          style={{ width: "100vw", height: "10vh" }}
+          src="https://images.unsplash.com/photo-1546448396-6aef80193ceb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+        />
+      </div>
+
+      <div>
+        <p>Welcome to E-commers website</p>
+      </div>
+      {/* <p>Hi this home page</p> */}
+
+      {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
             <p class="font-weight-bold"> Watch store</p>
@@ -59,7 +71,7 @@ function Home() {
             </div>
           </div>
         </center>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

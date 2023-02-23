@@ -1,0 +1,19 @@
+.Login__container__image {
+  background-image: url("https://plus.unsplash.com/premium_photo-1664201890484-a5f7109c8e56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=376&q=80");
+  height: 100vh;
+  background-size: cover;
+}
+
+.Login__container__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .hideing {
+    display: none;
+  }
+}
