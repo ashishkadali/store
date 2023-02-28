@@ -13,7 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Router>
+      <NavbarHome />
+      <Router>
         <store.Provider value={[token, settoken]}>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -21,8 +22,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
           </Routes>
         </store.Provider>
-      </Router> */}
-      <NavbarHome />
+      </Router>
     </div>
   );
 }

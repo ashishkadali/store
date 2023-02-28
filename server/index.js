@@ -1,8 +1,9 @@
 var express = require("express");
-var path = require("path");
 var app = express();
 var mangoose = require("mongoose");
 var cors = require("cors");
+var userAthu = require("./Routers/auth");
+var userRoute = require("./Routers/user");
 
 mangoose.connect("mongodb://localhost:27017", (err, res) => {
   if (!err) {
@@ -13,8 +14,9 @@ mangoose.connect("mongodb://localhost:27017", (err, res) => {
 app.use(cors());
 app.use(express.json());
 
-app.use("", require(path.join(__dirname, "./Routers/router")));
-app.use("/register", require(path.join(__dirname, "./Routers/router")));
+app;
+app.use("/", userAthu);
+app.use("/", userRoute);
 
 app.listen(5001, () => {
   console.log("server is runing at port 5001");

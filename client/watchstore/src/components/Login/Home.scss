@@ -1,26 +1,26 @@
-// .overlayapperance {
-//   height: 100%;
-//   width: 30%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   align-items: center;
-//   margin-left: auto;
-//   //   background-color: $primary-color;
-//   animation-name: opening-animation;
-//   animation-duration: 1s;
-//   animation-iteration-count: 1;
-//   animation-fill-mode: forwards;
-//   animation-timing-function: ease-out;
-//   overflow: auto;
-// }
+.categoryTittle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  //   width: 100%;
+}
 
-// @keyframes opening-animation {
-//   from {
-//     transform: translate(100%, 0);
-//   }
+.catergoryImage {
+  border: 2px solid black;
+  height: 200px;
+  //   width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-//   to {
-//     transform: translate(0, 0);
-//   }
-// }
+.categoryTittle:hover {
+  transform: scale(1.05);
+}
