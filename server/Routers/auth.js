@@ -84,4 +84,34 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/changepassword", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await Users.findOne({ email });
+
+    if (!user) {
+      res.send(400).send("email is not registerd");
+    }
+
+    let payload = {
+      user: {
+        id: user.id,
+        isAdmin: user.isAdmin,
+      },
+    };
+
+    const accessToken = jwt.sign(payload, "jwtSecret", {
+      expiresIn: "300000000",
+    });
+
+    const { password, ...others } = user._doc;
+
+    res.status(200).send({ ...others, accessToken });
+  } catch (error) {
+    if (error) throw error;
+    res.status(500).send("server error " + error);
+  }
+});
+
 module.exports = router;

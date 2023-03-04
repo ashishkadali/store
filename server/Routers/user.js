@@ -7,6 +7,7 @@ var {
   verifyTokenAndAdmin,
 } = require("../Middleware/verifyToken");
 var CryptoJS = require("crypto-js");
+const { create } = require("../Models/RegisterUser");
 
 //UPDATE USER DATA
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
@@ -42,7 +43,7 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
   }
 });
 
-//GET USER DETAILS ONLY ADMIN CAN SEE
+//GET ADMIN USER DETAILS
 
 router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
@@ -52,6 +53,44 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
     res.status(200).send(others);
   } catch (error) {
     if (error) throw error;
+  }
+});
+
+//GET ALL USER DATA
+router.get("/", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const user = await Users.find();
+    // const { password, ...others } = user._doc;
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get user status per month
+
+router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+  const date = new Date();
+  const lastYear = new Date(date.getFullYear() - 1);
+
+  try {
+    const data = await Users.aggregate([
+      { $match: { createdAt: { $gte: lastYear } } },
+      {
+        $project: {
+          month: { $month: "$createdAt" },
+        },
+      },
+      {
+        $group: {
+          _id: "$month",
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

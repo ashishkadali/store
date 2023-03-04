@@ -6,6 +6,7 @@ import React, { createContext, useState } from "react";
 import Home from "./components/Login/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarHome from "./components/Navbar/NavbarHome";
+import Payment from "./components/Payment/Payment";
 export const store = createContext();
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/sigin" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/payment" element={<Payment />}></Route>
           </Routes>
         </store.Provider>
       </Router>
