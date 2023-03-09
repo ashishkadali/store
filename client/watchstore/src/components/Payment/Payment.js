@@ -16,11 +16,16 @@ export default class Payment extends Component {
   }
 
   makeReq = async () => {
-    const res = await axios.post("http://localhost:5001/api/strip/payment", {
-      source: this.state.tokenId,
-      amount: 20000,
-    });
-    console.log(res);
+    try {
+      const res = await axios.post("http://localhost:5001/api/strip/payment", {
+        source: this.state.tokenId,
+        amount: 20000,
+      });
+      console.log(res);
+    } catch (error) {
+      if (error) throw error;
+      alert(error);
+    }
   };
 
   onToken = (token) => {

@@ -5,7 +5,6 @@ import Login from "./components/Login/Login";
 import React, { createContext, useState } from "react";
 import Home from "./components/Login/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavbarHome from "./components/Navbar/NavbarHome";
 import Payment from "./components/Payment/Payment";
 export const store = createContext();
 
@@ -14,7 +13,6 @@ function App() {
 
   return (
     <div className="App">
-      <NavbarHome />
       <Router>
         <store.Provider value={[token, settoken]}>
           <Routes>

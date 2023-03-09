@@ -4,6 +4,7 @@ import { store } from "../../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Overlay from "./Overlay";
+import Navbar from "./Navbar";
 // import "./Home.scss";
 
 function Home() {
@@ -33,16 +34,9 @@ function Home() {
   // };
   return (
     <div>
-      <div className="image__container">
-        <img
-          style={{ width: "100vw", height: "10vh" }}
-          src="https://images.unsplash.com/photo-1546448396-6aef80193ceb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-        />
-      </div>
+      <Navbar />
 
-      <div>
-        <p>Welcome to E-commers website</p>
-      </div>
+      <p>Welcome to E-commers website</p>
       {/* <p>Hi this home page</p> */}
 
       {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
